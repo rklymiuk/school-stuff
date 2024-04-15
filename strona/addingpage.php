@@ -23,12 +23,13 @@ if (isset($_POST['submit'])){
   $tresc = $_POST['tresc'];
   $data = date("Y-m-d");
 
-  $sql = "INSERT INTO wiadomosci  VALUES ('$autor', '$temat','$tresc','$data')";
+  $sql = "INSERT INTO wiadomosci( autor, temat, tresc,  data )  VALUES ('$autor', '$temat','$tresc','$data')";
   $resul = mysqli_query($conn, $sql);
   if ($resul) {
     echo "ADD";
   } else {
-    echo "NOT ADD";
+    $error = mysqli_error($conn);
+  echo "Error: $error"; ;
   }
  }
 

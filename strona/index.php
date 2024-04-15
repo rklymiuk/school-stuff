@@ -42,10 +42,16 @@ if (mysqli_num_rows($result) > 0) {
       "tresc: " . $row["tresc"]. "<br>" . " data dodania: " . $row["data"];
 
     }}
+    "<hr"
+    $id =$_REQUEST['id'];
+
+    $result = mysql_query("SELECT * FROM replies WHERE id = '$id'");
+    $test = mysql_fetch_array($result);
     mysqli_close($conn);
     ?>
 
 </main>
+ <hr>
 
 </body>
 </html>
